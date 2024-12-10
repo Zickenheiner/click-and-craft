@@ -1,5 +1,5 @@
 import "../styles/Home.css";
 
 export default function Home() {
-  return <div>Home</div>;
+  return <div>Page Home</div>;
 }
