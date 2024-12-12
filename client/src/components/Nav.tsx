@@ -16,14 +16,14 @@ export default function Nav() {
     <div className="nav-container">
       <button
         type="button"
-        className={`${navState === "warehouse" ? "active" : "inactive"} nav-button`}
+        className={`${navState === "warehouse" && "active"} nav-button`}
         onClick={() => handleActive("warehouse")}
       >
         Entrepot
       </button>
       <button
         type="button"
-        className={`${navState === "building" ? "active" : "inactive"} nav-button`}
+        className={`${navState === "building" && "active"} nav-button`}
         onClick={() => handleActive("building")}
       >
         Batiment
