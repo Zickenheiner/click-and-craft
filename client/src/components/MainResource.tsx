@@ -24,13 +24,13 @@ export default function MainResource({
       if (nameOfkey === "stone") {
         return {
           ...prev,
-          [nameOfkey]: prev[nameOfkey] + 0.2,
+          [nameOfkey]: Math.round((prev[nameOfkey] + 0.2) * 10) / 10,
         };
       }
       if (nameOfkey === "iron") {
         return {
           ...prev,
-          [nameOfkey]: prev[nameOfkey] + 0.1,
+          [nameOfkey]: Math.round((prev[nameOfkey] + 0.1) * 10) / 10,
         };
       }
       return prev;
@@ -54,7 +54,7 @@ export default function MainResource({
           <p className="main-resource-per-click">{perClick}/click</p>
         </div>
       </div>
-      <p>{value.toFixed(0)}</p>
+      <p>{Math.floor(value)}</p>
     </div>
   );
 }
