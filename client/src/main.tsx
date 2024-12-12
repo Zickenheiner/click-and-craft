@@ -7,7 +7,9 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 // Import the main app component
 import App from "./App";
-import Home from "./pages/Home";
+import GlobalContext from "./contexts/GlobalContext";
+import Building from "./pages/Building";
+import Warehouse from "./pages/Warehouse";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
@@ -24,8 +26,12 @@ const router = createBrowserRouter([
     element: <App />, // Renders the App component for the home page
     children: [
       {
-        path: "/",
-        element: <Home />,
+        path: "/warehouse",
+        element: <Warehouse />,
+      },
+      {
+        path: "/building",
+        element: <Building />,
       },
     ],
   },
@@ -43,7 +49,9 @@ if (rootElement == null) {
 // Render the app inside the root element
 createRoot(rootElement).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <GlobalContext>
+      <RouterProvider router={router} />
+    </GlobalContext>
   </StrictMode>,
 );
 
