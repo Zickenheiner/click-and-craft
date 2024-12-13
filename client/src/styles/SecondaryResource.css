@@ -1,0 +1,18 @@
+.secondary-resource-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.secondary-resource-name-container {
+  background-color: #d9d9d9;
+  padding: 0 7px 0 7px;
+  border-radius: 20px;
+}
+
+.secondary-resource-value-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

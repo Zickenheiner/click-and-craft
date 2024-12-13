@@ -1,36 +1,49 @@
 import { useResources } from "../contexts/ResourceProvider";
 import "../styles/MainResource.css";
-import type { MainResourceProps, MainResourcesType } from "../types/type";
+import type {
+  MainResourceProps,
+  MainResourcesType,
+} from "../types/resourceType";
 
-export default function MainResource({
-  img,
-  backgroundColor,
-  borderColor,
-  name,
-  nameOfkey,
-  value,
-  perClick,
-}: MainResourceProps) {
+export default function MainResource({ resource }: MainResourceProps) {
   const { setMainResources } = useResources();
+  const {
+    name,
+    nameOfkey,
+    value,
+    perClick,
+    backgroundColor,
+    borderColor,
+    img,
+  } = resource;
 
   const handleClickResource = () => {
     setMainResources((prev: MainResourcesType) => {
       if (nameOfkey === "wood") {
         return {
           ...prev,
-          [nameOfkey]: prev[nameOfkey] + 1,
+          [nameOfkey]: {
+            ...prev[nameOfkey],
+            value: prev[nameOfkey].value + 1,
+          },
         };
       }
       if (nameOfkey === "stone") {
         return {
           ...prev,
-          [nameOfkey]: Math.round((prev[nameOfkey] + 0.2) * 10) / 10,
+          [nameOfkey]: {
+            ...prev[nameOfkey],
+            value: Math.round((prev[nameOfkey].value + 0.2) * 10) / 10,
+          },
         };
       }
       if (nameOfkey === "iron") {
         return {
           ...prev,
-          [nameOfkey]: Math.round((prev[nameOfkey] + 0.1) * 10) / 10,
+          [nameOfkey]: {
+            ...prev[nameOfkey],
+            value: Math.round((prev[nameOfkey].value + 0.1) * 10) / 10,
+          },
         };
       }
       return prev;
